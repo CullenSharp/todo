@@ -1,87 +1,87 @@
-import React, {useState, useEffect} from 'react';
-import TodoForm from './form.js';
-import TodoList from './list.js';
-import {v4 as uuid} from 'uuid';
+import React, { useEffect, useState } from 'react';
+import useForm from '../../hooks/form.js';
 
-import './todo.scss';
+import { v4 as uuid } from 'uuid';
 
-/**
- * renders the todo ui and tracks changes in state
- * @return {html}
- */
-function ToDo() {
+const ToDo = () => {
+
   const [list, setList] = useState([]);
+  const [incomplete, setIncomplete] = useState([]);
+  const { handleChange, handleSubmit } = useForm(addItem);
 
-  const addItem = (item) => {
-    item._id = uuid();
+  function addItem(item) {
+    console.log(item);
+    item.id = uuid();
     item.complete = false;
     setList([...list, item]);
-  };
+  }
 
-  const toggleComplete = (id) => {
-    const item = list.filter((i) => i._id === id)[0] || {};
+  function deleteItem(id) {
+    const items = list.filter( item => item.id !== id );
+    setList(items);
+  }
 
-    if (item._id) {
-      item.complete = !item.complete;
-      const newList = list.map((listItem) =>
-        listItem._id === item._id ? item : listItem);
-      setList([...newList]);
-    }
-  };
+  function toggleComplete(id) {
 
-  useEffect(() => {
-    const items = [
-      {_id: 1,
-        complete: false,
-        text: 'Clean the Kitchen', difficulty: 3, assignee: 'Person A'},
-      {_id: 2,
-        complete: false,
-        text: 'Do the Laundry', difficulty: 2, assignee: 'Person A'},
-      {_id: 3,
-        complete: false,
-        text: 'Walk the Dog', difficulty: 4, assignee: 'Person B'},
-      {_id: 4,
-        complete: true,
-        text: 'Do Homework', difficulty: 3, assignee: 'Person C'},
-      {_id: 5,
-        complete: false,
-        text: 'Take a Nap', difficulty: 1, assignee: 'Person B'},
-    ];
+    const items = list.map( item => {
+      if ( item.id == id ) {
+        item.complete = ! item.complete;
+      }
+      return item;
+    });
 
-    setList([...items]);
-  }, []);
+    setList(items);
+
+  }
 
   useEffect(() => {
-    const title = document.querySelector('title');
-    const itemsLeftToComplete = list.filter((item) => !item.complete).length;
-    title.textContent = `There are ${itemsLeftToComplete} items to complete`;
+    let incompleteCount = list.filter(item => !item.complete).length;
+    setIncomplete(incompleteCount);
+    document.title = `To Do List: ${incomplete}`;
   }, [list]);
 
   return (
     <>
       <header>
-        <h2>
-          There are &nbsp;
-          {list.filter((item) => !item.complete).length}
-          &nbsp; Items To Complete
-        </h2>
+        <h1>To Do List: {incomplete} items pending</h1>
       </header>
 
-      <section className="todo">
+      <form onSubmit={handleSubmit}>
 
-        <div>
-          <TodoForm addItem={addItem} />
-        </div>
+        <h2>Add To Do Item</h2>
 
-        <div>
-          <TodoList
-            list={list}
-            handleComplete={toggleComplete}
-          />
+        <label>
+          <span>To Do Item</span>
+          <input onChange={handleChange} name="text" type="text" placeholder="Item Details" />
+        </label>
+
+        <label>
+          <span>Assigned To</span>
+          <input onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
+        </label>
+
+        <label>
+          <span>Difficulty</span>
+          <input onChange={handleChange} defaultValue={3} type="range" min={1} max={5} name="difficulty" />
+        </label>
+
+        <label>
+          <button type="submit">Add Item</button>
+        </label>
+      </form>
+
+      {list.map(item => (
+        <div key={item.id}>
+          <p>{item.text}</p>
+          <p><small>Assigned to: {item.assignee}</small></p>
+          <p><small>Difficulty: {item.difficulty}</small></p>
+          <div onClick={() => toggleComplete(item.id)}>Complete: {item.complete.toString()}</div>
+          <hr />
         </div>
-      </section>
+      ))}
+
     </>
   );
-}
+};
 
 export default ToDo;
