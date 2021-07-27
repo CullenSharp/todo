@@ -3,13 +3,17 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable react/jsx-filename-extension */
 /* eslint-disable no-param-reassign */
+
 import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import Form from './form';
+import List from './list';
 import useForm from '../../hooks/form';
 
 const ToDo = () => {
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
+  // eslint-disable-next-line no-use-before-define
   const { handleChange, handleSubmit } = useForm(addItem);
 
   function addItem(item) {
@@ -18,6 +22,7 @@ const ToDo = () => {
     setList([...list, item]);
   }
 
+  // eslint-disable-next-line no-unused-vars
   function deleteItem(id) {
     const items = list.filter((item) => item.id !== id);
     setList(items);
@@ -50,57 +55,8 @@ const ToDo = () => {
           items pending
         </h1>
       </header>
-
-      <form onSubmit={handleSubmit}>
-
-        <h2>Add To Do Item</h2>
-
-        <label>
-          <span>To Do Item</span>
-          <input onChange={handleChange} name="text" type="text" placeholder="Item Details" />
-        </label>
-
-        <label>
-          <span>Assigned To</span>
-          <input onChange={handleChange} name="assignee" type="text" placeholder="Assignee Name" />
-        </label>
-
-        <label>
-          <span>Difficulty</span>
-          <input onChange={handleChange} defaultValue={3} type="range" min={1} max={5} name="difficulty" />
-        </label>
-
-        <label>
-          <button type="submit">Add Item</button>
-        </label>
-      </form>
-
-      {list.map((item) => (
-        <div key={item.id}>
-          <p>{item.text}</p>
-          <p>
-            <small>
-              Assigned to:
-              {item.assignee}
-            </small>
-          </p>
-          <p>
-            <small>
-              Difficulty:
-              {item.difficulty}
-            </small>
-          </p>
-          <div
-            role="button"
-            onClick={() => toggleComplete(item.id)}
-          >
-            Complete:
-            {item.complete.toString()}
-          </div>
-          <hr />
-        </div>
-      ))}
-
+      <Form handleChange={handleChange} handleSubmit={handleSubmit} />
+      <List list={list} toggleComplete={toggleComplete} />
     </>
   );
 };
