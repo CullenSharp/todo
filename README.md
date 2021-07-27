@@ -21,7 +21,7 @@ Style, modularize, and implement context
 ### Tasks
 
 - [ ] Style with [Blueprint UI Kit](https://blueprintjs.com/docs/#blueprint)
-- [ ] Modularize application
+- [x] Modularize application
 - [ ] Implement context API
   - Manages number of items per page {int}
   - Hide or show completed items {bool}
