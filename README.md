@@ -2,7 +2,7 @@
 
 ![last commit](https://img.shields.io/github/last-commit/CullenSharp/todo)
 
-A todo list app using react context. Check out the api reference here: insert gh-pages site
+A todo list app using react context. Check out the [api reference](https://cullensharp.github.io/todo/).
 
 ## 🚀 Getting Started
 
@@ -16,3 +16,6 @@ A todo list app using react context. Check out the api reference here: insert gh
 
 > `note`: new docs coming soon
 
+## Further reading
+
+[JSDoc – documentation](https://jsdoc.app/)
