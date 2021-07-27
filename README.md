@@ -12,9 +12,19 @@ A todo list app using react context.
 
 ## 🏢 Architecture
 
-<!-- ![UML](UML.jpeg) -->
+![UML](todoList.png)
 
-> `note`: new docs coming soon
+## Phase 1
+
+Style, modularize, and implement context
+
+### Tasks
+
+- [ ] Style with [Blueprint UI Kit](https://blueprintjs.com/docs/#blueprint)
+- [ ] Modularize application
+- [ ] Implement context API
+  - manages number of items per page {int}
+  - Hide or show completed items {bool}
 
 ## Further reading
 
