@@ -23,7 +23,7 @@ Style, modularize, and implement context
 - [ ] Style with [Blueprint UI Kit](https://blueprintjs.com/docs/#blueprint)
 - [ ] Modularize application
 - [ ] Implement context API
-  - manages number of items per page {int}
+  - Manages number of items per page {int}
   - Hide or show completed items {bool}
 
 ## Further reading
