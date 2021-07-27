@@ -3,7 +3,7 @@ import propTypes from 'prop-types';
 
 /**
  * renders a form for adding todo list items
- * @param {function} props sets state in parent component
+ * @param {function} addItem sets state in parent component
  * @return {html}
  * @example
  *  <>

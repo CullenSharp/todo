@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import TodoForm from './form.js';
 import TodoList from './list.js';
+import {v4 as uuid} from 'uuid';
 
 import './todo.scss';
 
@@ -12,7 +13,7 @@ function ToDo() {
   const [list, setList] = useState([]);
 
   const addItem = (item) => {
-    item._id = Math.random();
+    item._id = uuid();
     item.complete = false;
     setList([...list, item]);
   };
@@ -49,6 +50,12 @@ function ToDo() {
 
     setList([...items]);
   }, []);
+
+  useEffect(() => {
+    const title = document.querySelector('title');
+    const itemsLeftToComplete = list.filter((item) => !item.complete).length;
+    title.textContent = `There are ${itemsLeftToComplete} items to complete`;
+  }, [list]);
 
   return (
     <>
