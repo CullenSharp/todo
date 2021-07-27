@@ -2,7 +2,7 @@
 
 ![last commit](https://img.shields.io/github/last-commit/CullenSharp/todo)
 
-A todo list app using react context. Check out the [api reference](https://cullensharp.github.io/todo/).
+A todo list app using react context.
 
 ## 🚀 Getting Started
 
@@ -12,7 +12,7 @@ A todo list app using react context. Check out the [api reference](https://culle
 
 ## 🏢 Architecture
 
-![UML](UML.jpeg)
+<!-- ![UML](UML.jpeg) -->
 
 > `note`: new docs coming soon
 
