@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 
 /**
- * @param {array} list of tasks to complete
+ * @param {array} list array of tasks to complete
  * @return {html}
  * @example
  *  <ul>
