@@ -5,16 +5,16 @@ import React from 'react';
 import propTypes from 'prop-types';
 import {
   Card,
-  FormGroup,
   H2,
   InputGroup,
   Button,
+  Elevation,
 } from '@blueprintjs/core';
 
 function Form({ handleChange, handleSubmit }) {
   return (
-    <Card>
-      <FormGroup onSubmit={handleSubmit}>
+    <Card id="form" interactive elevation={Elevation.FOUR}>
+      <form onSubmit={handleSubmit}>
 
         <H2>Add To Do Item</H2>
 
@@ -36,7 +36,7 @@ function Form({ handleChange, handleSubmit }) {
         <label>
           <Button type="submit">Add Item</Button>
         </label>
-      </FormGroup>
+      </form>
     </Card>
   );
 }
