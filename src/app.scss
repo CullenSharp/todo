@@ -1,3 +1,41 @@
 @import "~normalize.css";
 @import "~@blueprintjs/core/lib/css/blueprint.css";
 @import "~@blueprintjs/icons/lib/css/blueprint-icons.css";
+@import "~@blueprintjs/core/lib/scss/variables";
+
+html {
+  background-color: $light-gray1;
+}
+
+.bp3-navbar {
+  background: $white;
+}
+
+#content-wrapper {
+  width: 90vw;
+  padding: 2%;
+  height: 90vh;
+  display: flex;
+  justify-content: space-between;
+}
+
+#form {
+  width: 30%;
+  height: 50%;
+  margin: 2%;
+  margin-left: 2%;
+
+  input {
+    margin-top: 2%;
+  }
+
+  button {
+    margin-left: 2%;
+  }
+}
+
+.card-wrapper {
+  width: 80vw;
+  padding: 20px;
+  margin: 2%;
+}
