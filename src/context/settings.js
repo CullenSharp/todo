@@ -11,8 +11,28 @@ function SettingsProvider({ children }) {
   const [pageNumber, setPageNumber] = useState(3);
   // * add search field later
 
+  function toggleShow() {
+    if (showComplete) {
+      setShowComplete(false);
+    } else {
+      setShowComplete(true);
+    }
+  }
+
+  function changeItemsPerPage(e) {
+    const itemsPerPage = Number(e.target.value);
+    console.log(e.target.value);
+    setPageNumber(itemsPerPage);
+  }
+
   return (
-    <SettingsContext.Provider value={{ showComplete, pageNumber }}>
+    <SettingsContext.Provider value={{
+      showComplete,
+      pageNumber,
+      toggleShow,
+      changeItemsPerPage,
+    }}
+    >
       {children}
     </SettingsContext.Provider>
   );

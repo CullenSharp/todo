@@ -6,9 +6,7 @@
 
 import React, { useEffect, useState, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
-import { Navbar, Button } from '@blueprintjs/core';
-
-import { ButtonGroup } from 'react-bootstrap';
+import { Navbar, Button, ButtonGroup } from '@blueprintjs/core';
 import Form from './form';
 import List from './list';
 import { SettingsContext } from '../../context/settings';
@@ -23,7 +21,7 @@ const ToDo = () => {
   // eslint-disable-next-line no-use-before-define
   const { handleChange, handleSubmit } = useForm(addItem);
 
-  const { pageNumber } = useContext(SettingsContext);
+  const { pageNumber, showComplete } = useContext(SettingsContext);
 
   function addItem(item) {
     item.id = uuid();
@@ -70,6 +68,13 @@ const ToDo = () => {
       setActivePage([...segments[0]]);
     }
   }, [list]);
+
+  useEffect(() => {
+    if (!showComplete) {
+      const pendingItems = list.filter((item) => item.complete === false);
+      setList([...pendingItems]);
+    }
+  }, [showComplete]);
 
   return (
     <>
