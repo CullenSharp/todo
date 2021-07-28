@@ -3,12 +3,13 @@
 /* eslint-disable react/jsx-filename-extension */
 import React from 'react';
 import propTypes from 'prop-types';
+import { Card, Elevation, Button } from '@blueprintjs/core';
 
 function List({ list, toggleComplete }) {
   return (
-    <>
+    <section className="card-group">
       {list.map((item) => (
-        <div key={item.id}>
+        <Card interactive elevation={Elevation.FOUR} key={item.id}>
           <p>{item.text}</p>
           <p>
             <small>
@@ -22,17 +23,17 @@ function List({ list, toggleComplete }) {
               {item.difficulty}
             </small>
           </p>
-          <div
+          <Button
             role="button"
             onClick={() => toggleComplete(item.id)}
+            intent={item.complete ? 'Success' : 'Danger'}
           >
-            Complete:
-            {item.complete.toString()}
-          </div>
+            {item.complete ? ' complete' : ' incomplete'}
+          </Button>
           <hr />
-        </div>
+        </Card>
       ))}
-    </>
+    </section>
   );
 }
 List.propTypes = {
