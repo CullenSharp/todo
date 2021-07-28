@@ -6,8 +6,11 @@
 
 import React, { useEffect, useState } from 'react';
 import { v4 as uuid } from 'uuid';
+import { Navbar } from '@blueprintjs/core';
+
 import Form from './form';
 import List from './list';
+
 import useForm from '../../hooks/form';
 
 const ToDo = () => {
@@ -47,14 +50,14 @@ const ToDo = () => {
 
   return (
     <>
-      <header>
-        <h1>
+      <Navbar>
+        <div className="bp3-navbar-heading">
           To Do List:
           {incomplete}
           {' '}
           items pending
-        </h1>
-      </header>
+        </div>
+      </Navbar>
       <Form handleChange={handleChange} handleSubmit={handleSubmit} />
       <List list={list} toggleComplete={toggleComplete} />
     </>

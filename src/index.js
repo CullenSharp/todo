@@ -3,9 +3,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import App from './app';
+import SettingsProvider from './context/settings';
 
 function Main() {
-  return <App />;
+  return (
+    <React.StrictMode>
+      <SettingsProvider>
+        <App />
+      </SettingsProvider>
+    </React.StrictMode>
+  );
 }
 
 const rootElement = document.getElementById('root');
