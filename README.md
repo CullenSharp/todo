@@ -20,11 +20,23 @@ Style, modularize, and implement context
 
 ### Tasks
 
-- [ ] Style with [Blueprint UI Kit](https://blueprintjs.com/docs/#blueprint)
+- [X] Style with [Blueprint UI Kit](https://blueprintjs.com/docs/#blueprint)
 - [x] Modularize application
 - [x] Implement context API
   - Manages number of items per page {int}
   - Hide or show completed items {bool}
+
+## Phase 2
+
+Paginate, hide, customize, save
+
+### Tasks
+
+- [x] Implement pagination with context api
+- [ ] Hide or show completed items based on context
+- [ ] Allow the user to set preferences for hide/show and page size
+- [ ] Save preference to local storage
+- [ ] Retrieve preferences from local storage
 
 ## Further reading
 
