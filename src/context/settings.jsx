@@ -1,9 +1,6 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable react/jsx-filename-extension */
 import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 
-// ? why two exports again?
 export const SettingsContext = React.createContext();
 
 function SettingsProvider({ children }) {
