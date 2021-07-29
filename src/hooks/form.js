@@ -1,3 +1,4 @@
+/* eslint-disable no-shadow */
 import { useState } from 'react';
 
 const useForm = (callback) => {
@@ -9,9 +10,7 @@ const useForm = (callback) => {
   };
 
   const handleChange = (event) => {
-    console.log(event);
     event.persist();
-    // eslint-disable-next-line no-shadow
     setValues((values) => ({ ...values, [event.target.name]: event.target.value }));
   };
 

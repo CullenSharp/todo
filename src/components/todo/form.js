@@ -1,20 +1,26 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable react/jsx-filename-extension */
 
-import React from 'react';
+import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 import {
   Card,
-  FormGroup,
   H2,
   InputGroup,
   Button,
+  Elevation,
+  Switch,
 } from '@blueprintjs/core';
 
+import { SettingsContext } from '../../context/settings';
+
 function Form({ handleChange, handleSubmit }) {
+  const {
+    showComplete, toggleShow, pageNumber, changeItemsPerPage,
+  } = useContext(SettingsContext);
   return (
-    <Card>
-      <FormGroup onSubmit={handleSubmit}>
+    <Card id="form" interactive elevation={Elevation.FOUR}>
+      <form onSubmit={handleSubmit}>
 
         <H2>Add To Do Item</H2>
 
@@ -36,7 +42,16 @@ function Form({ handleChange, handleSubmit }) {
         <label>
           <Button type="submit">Add Item</Button>
         </label>
-      </FormGroup>
+
+        <label>
+          <span>Show completed</span>
+          <Switch checked={showComplete} onChange={toggleShow} />
+        </label>
+        <label>
+          <span>Items per page</span>
+          <input type="number" min="1" max="10" value={pageNumber} onChange={changeItemsPerPage} />
+        </label>
+      </form>
     </Card>
   );
 }
