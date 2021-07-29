@@ -44,7 +44,7 @@ Authenticate and authorize
 
 ### Tasks
 
-- [ ] create authorization context
+- [x] create authorization context
   - properties:
     - [x] loggedIn `bool`
     - [x] user `obj`
@@ -53,11 +53,11 @@ Authenticate and authorize
     - [x] logout
     - [x] isAuthorized
 
-- [ ] login component
+- [x] login component
   - detects is a user is logged in or not
   - conditionally renders a login form/logout button
 
-- [ ] auth component
+- [x] auth component
   - Based on permissions hide/show component
   - when you are authenticated, render props.children or null
   - take capabilities as props
