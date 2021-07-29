@@ -1,5 +1,4 @@
 /* eslint-disable jsx-a11y/label-has-associated-control */
-/* eslint-disable react/jsx-filename-extension */
 
 import React, { useContext } from 'react';
 import propTypes from 'prop-types';

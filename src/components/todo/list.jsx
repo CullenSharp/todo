@@ -1,6 +1,6 @@
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
-/* eslint-disable react/jsx-filename-extension */
+
 import React from 'react';
 import propTypes from 'prop-types';
 import { Card, Elevation, Button } from '@blueprintjs/core';
