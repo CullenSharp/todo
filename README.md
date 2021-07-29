@@ -33,11 +33,14 @@ Paginate, hide, customize, save
 ### Tasks
 
 - [x] Implement pagination with context api
-- [ ] Hide or show completed items based on context
-- [ ] Allow the user to set preferences for hide/show and page size
-- [ ] Save preference to local storage
-- [ ] Retrieve preferences from local storage
+- [x] Hide or show completed items based on context
+- [x] Allow the user to set preferences for hide/show and page size
+- [x] Save preference to local storage
+- [x] Retrieve preferences from local storage
 
+## Phase 3
+
+### Tasks
 ## Further reading
 
 [JSDoc – documentation](https://jsdoc.app/)
