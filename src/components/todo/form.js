@@ -15,7 +15,9 @@ import {
 import { SettingsContext } from '../../context/settings';
 
 function Form({ handleChange, handleSubmit }) {
-  const { toggleShow, changeItemsPerPage } = useContext(SettingsContext);
+  const {
+    showComplete, toggleShow, pageNumber, changeItemsPerPage,
+  } = useContext(SettingsContext);
   return (
     <Card id="form" interactive elevation={Elevation.FOUR}>
       <form onSubmit={handleSubmit}>
@@ -43,11 +45,11 @@ function Form({ handleChange, handleSubmit }) {
 
         <label>
           <span>Show completed</span>
-          <Switch onClick={toggleShow} />
+          <Switch checked={showComplete} onChange={toggleShow} />
         </label>
         <label>
           <span>Items per page</span>
-          <input type="number" min="1" max="10" onChange={changeItemsPerPage} />
+          <input type="number" min="1" max="10" value={pageNumber} onChange={changeItemsPerPage} />
         </label>
       </form>
     </Card>
