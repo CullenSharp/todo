@@ -72,11 +72,6 @@ class AuthorizationProvider extends React.Component {
   }
 
   render() {
-    // login: this.login.bind(this),
-    // logout: this.logout.bind(this),
-    // isAuthorized: this.isAuthorized.bind(this),
-    // isAuthenticated: false,
-    // user: {},
     const {
       login, logout, isAuthorized, isAuthenticated, user,
     } = this.state;
