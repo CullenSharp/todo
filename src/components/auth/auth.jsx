@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import propTypes from 'prop-types';
 
 import { AuthorizationContext } from '../../context/authorization';
@@ -8,7 +8,9 @@ function Auth({ capability, children }) {
 
   if (isAuthorized(capability)) {
     return (
-      { children }
+      <>
+        { children }
+      </>
     );
   }
   return null;

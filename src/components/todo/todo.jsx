@@ -9,6 +9,8 @@ import { v4 as uuid } from 'uuid';
 import { Navbar, Button, ButtonGroup } from '@blueprintjs/core';
 import Form from './form';
 import List from './list';
+import Auth from '../auth/auth';
+
 import { SettingsContext } from '../../context/settings';
 
 import useForm from '../../hooks/form';
@@ -85,12 +87,15 @@ const ToDo = () => {
         </Navbar.Group>
       </Navbar>
       <div id="content-wrapper">
-        <Form handleChange={handleChange} handleSubmit={handleSubmit} />
-
-        <List
-          list={list.length >= pageNumber ? activePage : list}
-          toggleComplete={toggleComplete}
-        />
+        <Auth capability="create">
+          <Form handleChange={handleChange} handleSubmit={handleSubmit} />
+        </Auth>
+        <Auth capability="read">
+          <List
+            list={list.length >= pageNumber ? activePage : list}
+            toggleComplete={toggleComplete}
+          />
+        </Auth>
       </div>
       { pages.length
         && (

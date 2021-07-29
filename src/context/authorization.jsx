@@ -8,19 +8,19 @@ export const AuthorizationContext = React.createContext();
 const testUsers = [
   {
     password: 'password',
-    name: 'Administrator',
+    username: 'Administrator',
     role: 'admin',
     capabilities: ['create', 'read', 'update', 'delete'],
   },
   {
     password: 'password',
-    name: 'Editor',
+    username: 'Editor',
     role: 'editor',
     capabilities: ['read', 'update'],
   },
   {
     password: 'password',
-    name: 'Writer',
+    username: 'Writer',
     role: 'writer',
     capabilities: ['create'],
   },
