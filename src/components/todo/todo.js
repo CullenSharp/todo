@@ -1,3 +1,4 @@
+/* eslint-disable no-use-before-define */
 /* eslint-disable jsx-a11y/label-has-associated-control */
 /* eslint-disable jsx-a11y/interactive-supports-focus */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
@@ -18,7 +19,6 @@ const ToDo = () => {
   const [incomplete, setIncomplete] = useState([]);
   const [pages, setPages] = useState([]);
   const [activePage, setActivePage] = useState([]);
-  // eslint-disable-next-line no-use-before-define
   const { handleChange, handleSubmit } = useForm(addItem);
 
   const { pageNumber, showComplete } = useContext(SettingsContext);
@@ -29,11 +29,10 @@ const ToDo = () => {
     setList([...list, item]);
   }
 
-  // eslint-disable-next-line no-unused-vars
-  function deleteItem(id) {
-    const items = list.filter((item) => item.id !== id);
-    setList(items);
-  }
+  // function deleteItem(id) {
+  //   const items = list.filter((item) => item.id !== id);
+  //   setList(items);
+  // }
 
   function toggleComplete(id) {
     const items = list.map((item) => {
