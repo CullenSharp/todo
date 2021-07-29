@@ -46,12 +46,12 @@ Authenticate and authorize
 
 - [ ] create authorization context
   - properties:
-    - [ ] loggedIn `bool`
-    - [ ] user `obj`
+    - [x] loggedIn `bool`
+    - [x] user `obj`
   - methods
-    - [ ] login
-    - [ ] logout
-    - [ ] can
+    - [x] login
+    - [x] logout
+    - [x] isAuthorized
 
 - [ ] login component
   - detects is a user is logged in or not
